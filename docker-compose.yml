@@ -1,0 +1,16 @@
+---
+
+version: '3'
+
+services:
+  qa-api:
+    container_name: qa-api
+    build:
+      context: ./app
+      dockerfile: $PWD/Dockerfile.node
+    volumes:
+      - ./app:/app
+    ports:
+      - 9303:3000
+    tty: true
+    stdin_open: true

@@ -1,0 +1,12 @@
+FROM node:14
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+  wget \
+  sudo \
+  git \
+  unzip
+
+COPY ./app/entrypoint.sh /tmp/entrypoint.sh
+ENTRYPOINT sh /tmp/entrypoint.sh
