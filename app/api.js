@@ -10,13 +10,13 @@ function queryParameter(req, key, defaultValue) {
 }
 
 app.get('/', function (req, res) {
-  res.json({'data' : 'Hello World!'});
+  res.json({'data' : 'Hello World'});
 });
 app.get('/courses', function (req, res) {
-  var courses = JSON.parse(fs.readFileSync('./data/courses.json', 'utf8'));
+  var courses = JSON.parse(fs.readFileSync('/Users/vladimirkarseka/Documents/devLearn/test_qa/app/data/courses.json', 'utf8'));
   let page = parseInt(queryParameter(req, 'page', '1'), 10);
   let limit = parseInt(queryParameter(req, 'limit', '2'), 10);
-  courses = courses.slice(page * limit, (page + 1) * limit);
+  courses = courses.slice(page * limit, (page + 2) * limit);
 
   if (req.query.sort === 'asc') {
     courses = courses.sort(function(a, b){return b.id - a.id});   
