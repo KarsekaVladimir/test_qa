@@ -1,5 +1,6 @@
 # QA Automation Test Task
-Notes:
+
+## Notes:
 test script is located test_qa/app/cypress/e2e/testTask.cy.js 
 Performed by cypress and myown))
 
