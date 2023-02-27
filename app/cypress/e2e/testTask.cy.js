@@ -11,8 +11,11 @@ describe('test api /courses', () => {
     it('check api structure', () => {
         cy.request({
             method: 'GET',
-            url: '/courses?limit=1&page=1'
-
+            url: '/courses',
+            qs: {
+                'limit': [1],
+                'page': [1]
+            }
         }).then(res => {
             expect('Content-Type', /json/);
             expect(res.status).to.equal(200);
@@ -26,7 +29,10 @@ describe('test api /courses', () => {
     it('check default "limit" value', () => {
         cy.request({
             method: 'GET',
-            url: '/courses?&page=1'
+            url: '/courses',
+            qs: {
+                'page': [1]
+            }
         }).then(res => {
             expect('Content-Type', /json/);
             expect(res.status).to.equal(200);
@@ -37,7 +43,11 @@ describe('test api /courses', () => {
     it('check "limit" range value', () => {
         cy.request({
             method: 'GET',
-            url: '/courses?limit=7&page=1'
+            url: '/courses',
+            qs: {
+                'limit': [7],
+                'page': [1]
+            }
         }).then(res => {
             expect('Content-Type', /json/);
             expect(res.status).to.equal(200);
@@ -49,7 +59,12 @@ describe('test api /courses', () => {
     it('check responce JSON asc', () => {
         cy.request({
             method: 'GET',
-            url: "/courses?sort=asc&limit=5&page=1"
+            url: '/courses',
+            qs: {
+                'sort':['asc'],
+                'limit': [5],
+                'page': [1]
+            }
         }).then(res => {
             expect('Content-Type', /json/)
             expect(res.status).to.equal(200)
@@ -65,7 +80,12 @@ describe('test api /courses', () => {
     it('check responce JSON desc', () => {
         cy.request({
             method: 'GET',
-            url: "/courses?sort=desc&limit=5&page=1"
+            url: '/courses',
+            qs: {
+                'sort':['desc'],
+                'limit': [5],
+                'page': [1]
+            }
         }).then(res => {
             expect('Content-Type', /json/)
             expect(res.status).to.equal(200)
@@ -81,7 +101,12 @@ describe('test api /courses', () => {
     it('check responce JSON data ', () => {
         cy.request({
             method: 'GET',
-            url: "/courses?sort=desc&limit=5&page=1"
+            url: '/courses',
+            qs: {
+                'sort':['asc'],
+                'limit': [5],
+                'page': [1]
+            }
         }).then(res => {
             expect('Content-Type', /json/);
             expect(res.status).to.equal(200);
