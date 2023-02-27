@@ -1,4 +1,7 @@
 # QA Automation Test Task
+Notes:
+test script is located test_qa/app/cypress/e2e/testTask.cy.js 
+Performed by cypress and myown))
 
 In this repository you can find a test task for Automation QA.
 First of all we will take a look at the quality of your job, but do not spend too much time on this task, 2-3 hours would be enough.
